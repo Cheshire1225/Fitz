@@ -2,6 +2,7 @@
 #define FITZ_H
 
 #include <stdint.h>
+#include <stdio.h>
 
 struct trapFrame {
     uint64_t user_rip;
@@ -15,7 +16,7 @@ extern char SMEP;
 extern char SMAP;
 extern char ALL;
 
-void printMem(char buf[], int row);
+void printMem(const void* data, size_t size);
 int openModule(char path[]);
 void retUser64(struct trapFrame tf);
 long long* ROPretUser64(struct trapFrame tf, long long swapgs, long long iretq);

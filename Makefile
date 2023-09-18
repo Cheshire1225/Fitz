@@ -5,7 +5,7 @@ lib_build :
 
 build :
 	gcc -c $(src).c -O0 -o $(src).o -masm=intel
-	gcc -o $(src) $(src).o -O0 -L.. -l:fitz.a --static
+	gcc -o $(src) $(src).o -O0 -L. -l:fitz.a --static
 
 clean :
 	rm lib/*.o fitz.a

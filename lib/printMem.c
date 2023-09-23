@@ -15,8 +15,13 @@ void printMem(const void* data, size_t size) {
 
         printf(" ");
 
-        for (size_t i = offset; i < offset + 8 && i < size; i++) {
+        for (size_t i = offset+8; i < offset + 16 && i < size; i++) {
             printf("%02x ", buffer[i]);
+        }
+
+        if (offset+16 >= size){
+            for (int i = 0; i < 16 - size % 16; i++)
+                printf("   ");
         }
 
         printf(" |  ");

@@ -7,12 +7,19 @@ void printMem(const void* data, size_t size) {
     size_t lineCount = 0;
 
     for (size_t offset = 0; offset < size; offset += 16) {
-        printf("%08llx: ", lineCount * 16);
+        printf("%08llx:  ", lineCount * 16);
 
-        for (size_t i = offset; i < offset + 16 && i < size; i++) {
+        for (size_t i = offset; i < offset + 8 && i < size; i++) {
             printf("%02x ", buffer[i]);
         }
 
+        printf(" ");
+
+        for (size_t i = offset; i < offset + 8 && i < size; i++) {
+            printf("%02x ", buffer[i]);
+        }
+
+        printf(" |  ");
         for (size_t i = offset; i < offset + 16 && i < size; i++) {
             if (buffer[i] >= 32 && buffer[i] <= 126) {
                 putchar(buffer[i]);

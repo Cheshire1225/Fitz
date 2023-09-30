@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "../fitz.h"
 
-long long* ROPretUser64(struct trapFrame tf, long long swapgs, long long iretq, int verbose) {
+long long* ROPretUser64(struct trapFrame tf, long long swapgs, long long iretq, _Bool verbose) {
     if (verbose)
         puts("Generating return payload...");
 

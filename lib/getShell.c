@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-void getShell(int verbose) {
+void getShell(_Bool verbose) {
     if (verbose)
         puts("Spawning shell...");
         

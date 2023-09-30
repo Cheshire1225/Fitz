@@ -31,6 +31,16 @@ void printMem(const void* data, size_t size) {
             }
         }
 
+        size_t RepValue;
+        for (RepValue = offset + 16; buffer[RepValue] == buffer[RepValue-1] && RepValue < size; RepValue++){}
+        if (RepValue / 16 - lineCount > 2){
+            printf("\n*");
+            lineCount = lineCount + (RepValue / 16) - 1;
+            if ((lineCount * 16) + 16 >= size)
+                lineCount = lineCount - 1;
+            offset = lineCount * 16;
+        }
+
         putchar('\n');
         lineCount++;
     }

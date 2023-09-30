@@ -5,7 +5,9 @@ char SMEP = 1;
 char SMAP = 2;
 char ALL = 3;
 
-long long setCR4(long long cr4, char mode) {
+long long setCR4(long long cr4, char mode, int verbose) {
+    if (verbose)
+        puts("Generating new CR4 value...\n");
     if (mode == 1){
         int mask = ~(1 << 20);
         cr4 = cr4 & mask;

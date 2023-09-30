@@ -1,6 +1,10 @@
+#include <stdio.h>
 #include "../fitz.h"
 
-long long* ROPretUser64(struct trapFrame tf, long long swapgs, long long iretq) {
+long long* ROPretUser64(struct trapFrame tf, long long swapgs, long long iretq, int verbose) {
+    if (verbose)
+        puts("Generating return payload...");
+
     static long long gadget[7] = { 0, };
     gadget[0] = swapgs;
     gadget[1] = iretq;
